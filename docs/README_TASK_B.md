@@ -130,3 +130,37 @@ predictions and labels from the original authors.
 The extracted files are stored in data/plantnet-trunc/.
 
 Dataset files are excluded from Git.
+
+## Global Conformal Coverage Diagnostic
+
+Script: scripts/analyze_coverage.py
+
+Protocol:
+- Dataset: Pl@ntNet-Trunc
+- Method: Global split conformal prediction
+- Target coverage: 90%
+- Budget: 100%
+- Random seed: 0
+- Calibration samples: 14,325
+- Score: 1 - predicted probability of the true class
+
+Results:
+
+| Metric | Value |
+|---|---:|
+| Global threshold | 0.787484 |
+| Overall weighted coverage | 90.1039% |
+| Macro coverage | 66.9697% |
+| Common-class coverage | 89.5364% |
+| Rare-class coverage | 40.4909% |
+| Common–rare coverage gap | 49.0455 percentage points |
+| Average prediction set size | 1.1538 |
+
+Common and rare classes are defined as the highest-
+and lowest-frequency 110 training classes, respectively.
+
+This is a single-seed diagnostic using the standard
+20/80 design/calibration split. It is not the final
+multi-seed baseline experiment assigned to Member A.
+
+Figure: results/figures/common_vs_rare_coverage.png
