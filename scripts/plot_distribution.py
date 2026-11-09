@@ -3,7 +3,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-from data_loader import load_data
+from src.data.data_loader import load_data
 
 data = load_data()
 
@@ -25,7 +25,7 @@ ax.set_title("Pl@ntNet-Trunc: Long-Tailed Class Distribution")
 ax.grid(True, alpha=0.25)
 
 fig.tight_layout()
-fig.savefig("class_distribution.png", dpi=200)
+fig.savefig("results/figures/class_distribution.png", dpi=200)
 plt.close(fig)
 
 print("Saved: class_distribution.png")

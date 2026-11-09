@@ -1,7 +1,7 @@
 from pathlib import Path
 import numpy as np
 
-DATA_DIR = Path(__file__).resolve().parent / "data" / "plantnet-trunc"
+DATA_DIR = Path(__file__).resolve().parents[2] / "data" / "plantnet-trunc"
 PREFIX = "best-plantnet-trunc-model"
 
 

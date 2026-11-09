@@ -86,7 +86,7 @@ def evaluate(prediction_sets, labels, train_counts):
 
 
 if __name__ == "__main__":
-    from data_loader import load_data
+    from src.data.data_loader import load_data
 
     data = load_data()
 

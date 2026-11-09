@@ -1,5 +1,5 @@
 import numpy as np
-from data_loader import load_data
+from .data_loader import load_data
 
 BUDGETS = (0.1, 0.3, 1.0)
 SEEDS = tuple(range(10))

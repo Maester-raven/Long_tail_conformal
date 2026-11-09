@@ -22,31 +22,31 @@ Extract plantnet-trunc.zip into data/plantnet-trunc/.
 
 ## Modules
 
-- data_loader.py: load and validate data
-- split.py: reproducible budget splits
-- metrics.py: evaluation metrics
-- plot_distribution.py: class distribution visualization
+- src/data/data_loader.py: load and validate data
+- src/data/split.py: reproducible budget splits
+- src/evaluation/metrics.py: evaluation metrics
+- scripts/plot_distribution.py: class distribution visualization
 
 ## Usage
 
 Load data:
 
-    from data_loader import load_data
+    from src.data.data_loader import load_data
     data = load_data()
 
 Create a reproducible split:
 
-    from split import get_split
+    from src.data.split import get_split
     split = get_split(data, budget=0.3, seed=0)
 
 Use the full budget for calibration:
 
-    from split import get_full_calibration_split
+    from src.data.split import get_full_calibration_split
     full = get_full_calibration_split(data, budget=0.3, seed=0)
 
 Evaluate prediction sets:
 
-    from metrics import evaluate
+    from src.evaluation.metrics import evaluate
     results = evaluate(
         prediction_sets,
         data["test_labels"],
@@ -79,16 +79,16 @@ using training class frequencies.
 
 Run:
 
-    python data_loader.py
-    python split.py
-    python metrics.py
-    python plot_distribution.py
+    python -m src.data.data_loader
+    python -m src.data.split
+    python -m src.evaluation.metrics
+    python -m scripts.plot_distribution
 
 Expected output figure: class_distribution.png
 
 ## Model Prediction Analysis
 
-Script: analyze_predictions.py
+Script: scripts/analyze_predictions.py
 
 Dataset: Pl@ntNet-Trunc independent test set.
 
@@ -122,7 +122,7 @@ From the project root, first install Python dependencies.
 
 Then run:
 
-    bash download_data.sh
+    bash scripts/download_data.sh
 
 This downloads the public Pl@ntNet-Trunc precomputed
 predictions and labels from the original authors.

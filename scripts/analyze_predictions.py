@@ -3,7 +3,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-from data_loader import load_data
+from src.data.data_loader import load_data
 
 data = load_data()
 
@@ -56,7 +56,7 @@ ax.set_title("Class Frequency vs. Model Accuracy")
 ax.grid(True, alpha=0.25)
 
 fig.tight_layout()
-fig.savefig("frequency_vs_accuracy.png", dpi=200)
+fig.savefig("results/figures/frequency_vs_accuracy.png", dpi=200)
 plt.close(fig)
 
 print("Saved: frequency_vs_accuracy.png")
