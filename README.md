@@ -2,35 +2,37 @@
 
 DS4023 Machine Learning Group Project
 
-## Project Goal
+## Overview
 
-Compare frequency-based and confusion-based grouping
-for conformal prediction under limited calibration data.
+This project investigates conformal prediction for
+long-tailed classification using Pl@ntNet-Trunc.
 
-The goal is to improve rare-class coverage while keeping
-prediction sets small.
+The current implementation covers Task B:
+Dataset & Model Prediction.
 
-## Project Structure
+## Dataset
 
-- src/data/          Dataset loading and splitting (Member B)
-- src/methods/       Baseline and proposed methods (Members A, C)
-- src/evaluation/    Evaluation metrics (Members B, D)
-- scripts/           Data download and analysis scripts
-- results/figures/   Generated figures
-- docs/              Documentation and reports
-- data/              Local dataset (excluded from Git)
+Precomputed model probabilities and labels are used.
+
+- 330 classes
+- 17,906 calibration samples
+- 33,000 test samples
+- 230,267 training labels
+- 12 classes without calibration samples
+
+No model training is required.
 
 ## Setup
 
-Create a Python environment and install dependencies:
+Install dependencies:
 
     python -m pip install numpy pandas matplotlib scikit-learn gdown
 
-Download the precomputed dataset:
+Download and extract the dataset:
 
     bash scripts/download_data.sh
 
-## Run Task B
+## Task B
 
 Run from the repository root:
 
@@ -40,24 +42,20 @@ Run from the repository root:
     python -m scripts.plot_distribution
     python -m scripts.analyze_predictions
 
-## Dataset
+## Prediction Analysis
 
-Pl@ntNet-Trunc:
-- 330 classes
-- 17,906 calibration samples
-- 33,000 test samples
-- 230,267 training labels
-
-The project uses precomputed model probabilities.
-No model training is required.
+| Metric | Accuracy |
+|---|---:|
+| Overall Top-1 | 59.99% |
+| Rare-class Top-1 | 33.95% |
+| Zero-calibration-class Top-1 | 6.00% |
 
 ## Documentation
 
-See docs/README_TASK_B.md for Task B details.
+See [Task B Documentation](docs/README_TASK_B.md)
+for detailed implementation and usage instructions.
 
-## Original Research Code and Data
+## Reference
 
+Original research repository:
 https://github.com/tiffanyding/long-tail-conformal
-
-The original research code and dataset belong to their
-respective authors.
