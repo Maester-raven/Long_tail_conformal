@@ -164,3 +164,58 @@ This is a single-seed diagnostic using the standard
 multi-seed baseline experiment assigned to Member A.
 
 Figure: results/figures/common_vs_rare_coverage.png
+
+## Multi-seed Global Coverage Analysis
+
+Script: scripts/analyze_coverage_multiseed.py
+
+Experimental protocol:
+- Budgets: 10%, 30%, 100%
+- Random seeds: 0–9
+- Target coverage: 90%
+- Standard protocol: 20% design, 80% calibration
+- Additional protocol: 100% of selected budget for calibration
+- Total runs: 60
+- Fixed independent test set
+
+### Standard 80% Calibration Results
+
+| Budget | Overall Coverage | Common Coverage | Rare Coverage | Coverage Gap | Avg Set Size |
+|---|---:|---:|---:|---:|---:|
+| 10% | 90.17% | 89.58% | 40.73% | 48.85 pp | 1.1586 |
+| 30% | 90.03% | 89.42% | 40.35% | 49.07 pp | 1.1502 |
+| 100% | 90.02% | 89.43% | 40.33% | 49.10 pp | 1.1505 |
+
+All table values are means across 10 random seeds.
+
+Rare-class coverage sample standard deviations:
+- 10% budget: 1.42 percentage points
+- 30% budget: 0.70 percentage points
+- 100% budget: 0.17 percentage points
+
+### Findings
+
+Global conformal prediction achieves approximately 90%
+frequency-weighted overall coverage, while rare-class
+macro coverage remains around 40%.
+
+Increasing calibration budget reduces variation across
+random calibration splits, but does not substantially
+eliminate the common-versus-rare coverage gap.
+
+The experiments reuse the same independent test set.
+The reported cross-seed variability reflects calibration
+splitting, not uncertainty across independent test sets.
+
+This analysis covers Global conformal prediction only.
+Comparisons with frequency grouping, confusion grouping,
+and other baselines belong to subsequent group experiments.
+
+### Generated Outputs
+
+- results/global_coverage_all_runs.csv
+- results/global_coverage_summary.csv
+- results/figures/rare_coverage_multiseed.png
+- results/figures/common_coverage_multiseed.png
+- results/figures/coverage_gap_multiseed.png
+- results/figures/set_size_multiseed.png
