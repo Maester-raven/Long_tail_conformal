@@ -5,9 +5,7 @@ cd "$(dirname "$0")/.."
 
 mkdir -p data
 
-python -m pip install gdown
-
-python -m gdown \
+uv run --locked gdown --no-cookies \
   1a0SF6xbMDwxmAde2VgBoP4q_qYX2hslm \
   -O data/plantnet-trunc.zip
 
