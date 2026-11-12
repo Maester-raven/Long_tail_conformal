@@ -7,8 +7,8 @@ DS4023 Machine Learning Group Project
 This project investigates conformal prediction for
 long-tailed classification using Pl@ntNet-Trunc.
 
-Task B prepares the data and model predictions. Task C implements frequency
-and confusion grouping for conformal prediction.
+Task B prepares the data and model predictions. Task A implements Global
+and Classwise baselines. Task C implements frequency and confusion grouping.
 
 ## Dataset
 
@@ -45,6 +45,12 @@ Run from the repository root:
     uv run --locked python -m scripts.plot_distribution
     uv run --locked python -m scripts.analyze_predictions
 
+## Task A
+
+Run the Global and Classwise baselines:
+
+    uv run --locked python -m scripts.analyze_baselines
+
 ## Task C
 
 Generate per-run and cross-seed metrics for both grouping methods:
@@ -61,9 +67,9 @@ Generate per-run and cross-seed metrics for both grouping methods:
 
 ## Documentation
 
-See [Task B Documentation](docs/README_TASK_B.md)
-for data preparation and [Task C Documentation](docs/README_TASK_C.md)
-for grouping, calibration, and experiment output.
+See [Task B Documentation](docs/README_TASK_B.md) for data preparation,
+[Task A Documentation](docs/README_TASK_A.md) for the baselines, and
+[Task C Documentation](docs/README_TASK_C.md) for grouping experiments.
 
 [Task C 中文说明](docs/README_TASK_C_ZH.md)
 
